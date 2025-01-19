@@ -1,0 +1,98 @@
+[
+    {
+        "id": "1",
+        "name": "Baraşka Gastrobar",
+        "address": "Bakı, 83 Nizami Küçəsi, 49a Səməd Vurğun, Bakı",
+        "latitude": 40.3735484,
+        "longitude": 49.8368477,
+        "category": "Cafe"
+    },
+    {
+        "id": "2",
+        "name": "Central Baku",
+        "address": "75 Nizami St, Baku 1005",
+        "latitude": 40.3708192,
+        "longitude": 49.8343268,
+        "category": "Cafe"
+    },
+    {
+        "id": "3",
+        "name": "LaQuzu",
+        "address": "Küçəsi 41 Boyuk Qala, Bakı 1095",
+        "latitude": 40.3680914,
+        "longitude": 49.8357732,
+        "category": "Cafe"
+    },
+    {
+        "id": "10",
+        "name": "Radisson Hotel Baku",
+        "address": "1 Azadlıq Prospekti, Bakı 1001",
+        "latitude": 40.3715306,
+        "longitude": 49.8463576,
+        "category": "Hotel"
+    },
+    {
+        "id": "11",
+        "name": "Callisto Hotel",
+        "address": "2 floor, 17 28 May St, Baku",
+        "latitude": 40.3762253,
+        "longitude": 49.8451639,
+        "category": "Hotel"
+    },
+    {
+        "id": "12",
+        "name": "Liberta Hotel",
+        "address": "16/21 Azadlıq Prospekti, Bakı",
+        "latitude": 40.3771921,
+        "longitude": 49.8472867,
+        "category": "Hotel"
+    },
+    {
+        "id": "4",
+        "name": "PAŞA Bank ASC Baş Ofis",
+        "address": "13 Yusif Məmmədəliyev, Bakı 1005",
+        "latitude": 40.370631,
+        "longitude": 49.8365211,
+        "category": "Bank"
+    },
+    {
+        "id": "5",
+        "name": "Kapital Bank - Sahil filialı",
+        "address": "18A Bülbül Prospekti, Bakı 1000",
+        "latitude": 40.3736047,
+        "longitude": 49.8219881,
+        "category": "Bank"
+    },
+    {
+        "id": "6",
+        "name": "Turan Bank Bakı Baş Ofis",
+        "address": "85 İsmayıl bəy Qutqaşınlı, Bakı 1073",
+        "latitude": 40.3724043,
+        "longitude": 49.8177771,
+        "category": "Bank"
+    },
+    {
+        "id": "7",
+        "name": "M.F.Axundov a. Azərbaycan Milli Kitabxanası",
+        "address": "29 Xaqani Küçəsi, Bakı 1000",
+        "latitude": 40.3743212,
+        "longitude": 49.8423825,
+        "category": "Library"
+    },
+    {
+        "id": "8",
+        "name": "Baku Book Center",
+        "address": "9RCR+GHC, Bakı 1009",
+        "latitude": 40.3713741,
+        "longitude": 49.8383372,
+        "category": "Library"
+    },
+    {
+        "id": "9",
+        "name": "Honours Coffee & Library",
+        "address": "Floor 1, Honours Academy office, 35 Uzeyir Hajibeyov, Baku 1000",
+        "latitude": 40.3755563,
+        "longitude": 49.8505534,
+        "category": "Library"
+    }
+]
