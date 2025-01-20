@@ -31,8 +31,18 @@ class RouteManager {
       ),
       GoRoute(
         name: RoutesNames.placeDetails,
-        path: RoutesNames.placeDetails,
-        builder: (context, state) => const PlaceDetailPage(),
+        path: "/placeDetails/:name/:address/:category/:lat/:long",
+        builder: (context, state) {
+          final param = state.pathParameters;
+
+          return PlaceDetailPage(
+            name: param['name'] ?? '',
+            address: param['address'] ?? '',
+            category: param['category'] ?? '',
+            lat: param['lat'] ?? '',
+            long: param['long'] ?? '',
+          );
+        },
       ),
     ],
   );

@@ -4,9 +4,14 @@ import 'package:flutter_prodata_task/core/dimesdions/dimensions.dart';
 import 'package:flutter_prodata_task/presentation/theme/app_colors.dart';
 
 class CustomAutoComplete extends StatefulWidget {
-  const CustomAutoComplete({super.key, required this.places});
+  const CustomAutoComplete({
+    super.key,
+    required this.suggestion,
+    required this.onSelected,
+  });
 
-  final List<String> places;
+  final List<String> suggestion;
+  final Function(String option) onSelected;
 
   @override
   State<CustomAutoComplete> createState() => _CustomAutoCompleteState();
@@ -21,7 +26,7 @@ class _CustomAutoCompleteState extends State<CustomAutoComplete> {
           return const Iterable<String>.empty();
         }
 
-        return widget.places.where((option) =>
+        return widget.suggestion.where((option) =>
             option.toLowerCase().contains(textEditingValue.text.toLowerCase()));
       },
       fieldViewBuilder: (
@@ -39,11 +44,10 @@ class _CustomAutoCompleteState extends State<CustomAutoComplete> {
             labelText: AppTexts.searchPlace,
             border: OutlineInputBorder(),
           ),
-          onFieldSubmitted: (value) {
-            onFieldSubmitted();
-          },
+          onFieldSubmitted: (value) {},
         );
       },
+      onSelected: (option) {},
       optionsViewBuilder: (context, onAutoCompleteSelect, options) {
         return Align(
           alignment: Alignment.topLeft,
@@ -60,7 +64,13 @@ class _CustomAutoCompleteState extends State<CustomAutoComplete> {
                   return const Divider();
                 },
                 itemBuilder: (BuildContext context, int index) {
-                  return Text(options.elementAt(index));
+                  final item = options.elementAt(index);
+                  return InkWell(
+                    onTap: () {
+                      widget.onSelected(item);
+                    },
+                    child: Text(item),
+                  );
                 },
               ),
             ),

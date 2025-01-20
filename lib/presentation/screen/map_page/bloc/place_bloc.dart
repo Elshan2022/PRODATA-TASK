@@ -5,8 +5,6 @@ import 'package:flutter_prodata_task/presentation/screen/map_page/bloc/place_sta
 class PlaceBloc extends Bloc<PlacesEvent, PlaceState> {
   PlaceBloc() : super(PlaceState(places: [])) {
     on<InitialPlacesEvent>(_onInitial);
-    
-
   }
 
   _onInitial(InitialPlacesEvent event, Emitter<PlaceState> emit) {

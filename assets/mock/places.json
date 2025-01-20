@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "name": "Baraşka Gastrobar",
+        "name": "Baraşka Gastrobar, Cafe",
         "address": "Bakı, 83 Nizami Küçəsi, 49a Səməd Vurğun, Bakı",
         "latitude": 40.3735484,
         "longitude": 49.8368477,
@@ -9,7 +9,7 @@
     },
     {
         "id": "2",
-        "name": "Central Baku",
+        "name": "Central Baku Cafe",
         "address": "75 Nizami St, Baku 1005",
         "latitude": 40.3708192,
         "longitude": 49.8343268,
@@ -17,7 +17,7 @@
     },
     {
         "id": "3",
-        "name": "LaQuzu",
+        "name": "LaQuzu Cafe",
         "address": "Küçəsi 41 Boyuk Qala, Bakı 1095",
         "latitude": 40.3680914,
         "longitude": 49.8357732,
@@ -73,7 +73,7 @@
     },
     {
         "id": "7",
-        "name": "M.F.Axundov a. Azərbaycan Milli Kitabxanası",
+        "name": "M.F.Axundov a. Azərbaycan Milli Kitabxanası, Library",
         "address": "29 Xaqani Küçəsi, Bakı 1000",
         "latitude": 40.3743212,
         "longitude": 49.8423825,

@@ -6,14 +6,16 @@ import 'package:flutter_prodata_task/core/base/base_navigation/navigation_method
 import 'package:flutter_prodata_task/core/base/base_view_model/base_view_model.dart';
 import 'package:flutter_prodata_task/core/model/place_model.dart';
 import 'package:flutter_prodata_task/core/services/place_service.dart';
+import 'package:flutter_prodata_task/core/utils/map_utils.dart';
 import 'package:flutter_prodata_task/presentation/screen/map_page/bloc/location_bloc.dart';
 import 'package:flutter_prodata_task/presentation/screen/map_page/bloc/location_event.dart';
 import 'package:flutter_prodata_task/presentation/screen/map_page/bloc/place_bloc.dart';
 import 'package:flutter_prodata_task/presentation/screen/map_page/bloc/place_event.dart';
-
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapPageViewModel extends BaseViewModel {
+  ValueNotifier<bool> isLoading = ValueNotifier<bool>(false);
+  final MapUtils _mapUtils = MapUtils();
   final Completer<GoogleMapController> controller =
       Completer<GoogleMapController>();
   final ValueNotifier<String> selectedCategory = ValueNotifier<String>("");
@@ -63,7 +65,11 @@ class MapPageViewModel extends BaseViewModel {
     myContext.read<PlaceBloc>().add(InitialPlacesEvent(places: places));
   }
 
-  void onCategory(String category, List<PlaceModel> places) {
+  void resetCategory() {
+    selectedCategory.value = "";
+  }
+
+  void onCategory(String category, List<PlaceModel> places) async {
     selectedCategory.value = category;
 
     myContext.read<LocationBloc>().add(
@@ -72,5 +78,27 @@ class MapPageViewModel extends BaseViewModel {
             places: places,
           ),
         );
+
+    List<LatLng> placeLocations = places.map((place) {
+      return LatLng(place.latitude, place.longitude);
+    }).toList();
+
+    if (controller.isCompleted) {
+      final mapController = await controller.future;
+      _mapUtils.updateCameraLocation(placeLocations, mapController);
+    }
+  }
+
+  Future<void> refreshLocation() async {
+    myContext
+        .read<LocationBloc>()
+        .add(ResetLocationEvent(controller: controller));
+
+    resetCategory();
+  }
+
+  Future<void> onSearch(String query, List<PlaceModel> places) async {
+    myContext.read<LocationBloc>().add(SearchEvent(query, places, controller));
+    resetCategory();
   }
 }

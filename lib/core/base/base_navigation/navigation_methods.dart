@@ -22,9 +22,15 @@ class NavigationMethods extends BaseNavigationMethods {
   }
 
   @override
-  Future<void> pushNamed(String routeName, {Object? arguments}) async {
+  Future<void> pushNamed(
+    String routeName, {
+    Map<String, String>? arguments,
+  }) async {
     final context = navigationKey.currentContext!;
-    await GoRouter.of(context).pushNamed(routeName, extra: arguments);
+    await GoRouter.of(context).pushNamed(
+      routeName,
+      pathParameters: arguments ?? {},
+    );
   }
 
   @override
