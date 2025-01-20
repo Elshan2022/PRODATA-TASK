@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prodata_task/core/base/base_view/base_view_builder.dart';
+import 'package:flutter_prodata_task/core/constants/app_texts.dart';
 import 'package:flutter_prodata_task/presentation/screen/place_details_page/view_model/place_detail_viewModel.dart';
 
 class PlaceDetailPage extends StatefulWidget {
@@ -39,11 +40,11 @@ class _PlaceDetailPageState extends State<PlaceDetailPage> {
               child: Center(
                 child: Column(
                   children: [
-                    infoListTile("Name", widget.name),
-                    infoListTile("Category", widget.category),
-                    infoListTile("Address", widget.address),
-                    infoListTile("Latitude", widget.lat),
-                    infoListTile("Longitude", widget.long),
+                    infoListTile(AppTexts.name, widget.name),
+                    infoListTile(AppTexts.category, widget.category),
+                    infoListTile(AppTexts.address, widget.address),
+                    infoListTile(AppTexts.latitude, widget.lat),
+                    infoListTile(AppTexts.longitude, widget.long),
                   ],
                 ),
               ),
