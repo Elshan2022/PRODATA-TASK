@@ -28,6 +28,11 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   _onInitial(InitialLocationEvent event, Emitter<LocationState> emit) async {
     Position currentPosition = await _locationService.getUserCurrentLocation();
 
+    final address = await _locationService.getAddressFromLatLng(
+      currentPosition.latitude,
+      currentPosition.longitude,
+    );
+
     await _baseCache.addItem(
       DatabaseInstance.instance.appDatabase.userLocation,
       UserLocationCompanion.insert(
@@ -36,11 +41,21 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
       ),
     );
 
+    PlaceModel placeModel = PlaceModel(
+      id: "23",
+      name: address,
+      address: address,
+      latitude: currentPosition.latitude,
+      longitude: currentPosition.longitude,
+      category: "Unknown",
+    );
+
     Set<Marker> markers = {
       _marker(
         const MarkerId('user_location'),
         LatLng(currentPosition.latitude, currentPosition.longitude),
         'Your Location',
+        placeModel,
       ),
     };
 
@@ -78,11 +93,26 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     final lat = positions[0].latitude;
     final long = positions[0].longitude;
 
+    final address = await _locationService.getAddressFromLatLng(
+      lat,
+      long,
+    );
+
+    PlaceModel placeModel = PlaceModel(
+      id: "23",
+      name: address,
+      address: address,
+      latitude: lat,
+      longitude: long,
+      category: "Unknown",
+    );
+
     Set<Marker> markers = {
       _marker(
         const MarkerId('user_location'),
         LatLng(lat, long),
         'Your Location',
+        placeModel,
       ),
     };
 
